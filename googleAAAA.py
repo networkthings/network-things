@@ -59,6 +59,6 @@ http://www.google.com/intl/en_ALL/ipv6/statistics/data/no_aaaa.txt
 
 
 # Example entries:
-# print checkBlacklist(AS='AS6713',email=True,me='sentFromMe@somemailplace.com',you='sentToYou@somemailplace.com',smtpserver='mailserver.someplace.com')
-# print checkBlacklist(AS='109')
+# checkBlacklist(AS='AS6713',email=True,me='sentFromMe@somemailplace.com',you='sentToYou@somemailplace.com',smtpserver='mailserver.someplace.com')
+# print checkBlacklist(AS='AS109')
 
