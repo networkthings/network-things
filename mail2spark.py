@@ -1,3 +1,12 @@
+'''
+Send messages from received emails filtered by procmail to a Cisco Spark room
+Syntax is mailtospark2.py -r 'name of the spark room to send to' -m 'name of the local mail directory to send messages from'
+-b 'bearer key or leave blank and enter a default in the argparse list'
+Requires email messages to be in seperate files e.g. similar to how procmail filters incoming mail.
+'''
+
+__author__ = 'Harry Watson'
+
 import glob
 import re, os
 from shutil import move
@@ -6,8 +15,6 @@ import json
 import time
 import argparse
 
-#Send messages from received emails filtered by procmail to a Cisco Spark room
-#Syntax is mailtospark2.py -r 'name of the spark room to send to' -m 'name of the local mail directory to send messages from'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-b", "--bearer",
@@ -23,7 +30,7 @@ args = parser.parse_args()
 # Global Vars
 working_dir = "/Maildir/%s/" %args.mail
 roomid = None
-tmp_dir = "/tmp"
+tmp_dir = "/tmp" #Directory to place processed emails into after sending to Spark
 roomurl = 'https://api.ciscospark.com/v1/rooms/'
 messageurl = 'https://api.ciscospark.com/v1/messages'
 headers = {'Authorization': 'Bearer '+args.bearer,'Content-type': 'application/json'}
